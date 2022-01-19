@@ -7,19 +7,14 @@ var server=app.listen(port,() => {
     console.log(`SERVER RUNNING IN http://localhost:${port}`);
 });
 
-
 ///////////////////////////////////
 //2. seteamos urlencoded para capturar datos del formulario
 app.use(express.urlencoded({extended: false}));
 app.use(express.json())
 
-
-
-
 //4 el directorio public
 app.use('/resources',express.static('public'));
 app.use('resources',express.static(__dirname +'public'));
-console.log(__dirname);// te imprime donde la ubicacion de la app js
 
 //5. estableciendo el motor de plantillas
 app.set('view engine', 'ejs');
@@ -88,8 +83,8 @@ app.post('/register', async (req,res)=>{
     })
 
 })
-//11. autenticacion
 
+//11. autenticacion
 app.post('/auth', async(req,res)=>{
     const user= req.body.user;
     const pass= req.body.pass;
